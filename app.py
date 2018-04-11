@@ -1,21 +1,31 @@
-from flask import Flask, render_template, request
+# from flask import Flask, render_template, request
+import urllib
 
 import requests
 
-endpoint = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients"
+# @app.route("/")
+# def hello ():
+# 	return render_template("hello.html", name = name.title ())
 
-def recipe_food (ingredientone, ingredienttwo)
 
-response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1",
-  headers={
-    "X-Mashape-Key": "iKBcUotH8nmshvpG46gPjRsSMSQop1Yumztjsnj3MXfTUkkFt0",
-    "Accept": "application/json"
-  }
-)
+endpoint = "https://www.edamam.com/recipes"
+
+ingredients = ["flour", "apple"] 
+
+print ingredients
+
+# if ingredients:
+# 	ingredients = urllib.urlencode(ingredients)
+
+print ingredients
+
+url_for_recipes = "https://api.edamam.com/search?app_id=ff6d4efa&app_key=f70aa029996a664dcb7516a504f11d74&q={}".format(" ".join(ingredients))
+
+response = requests.get(url_for_recipes)
 
 print response.url
 print response.status_code
-print response 
+print response.text
 
 # app = Flask ("MyApp")
 # app.run (debug=True)
