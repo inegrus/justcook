@@ -1,0 +1,23 @@
+body {
+    background-color: blanchedalmond;
+}
+
+#search-form{
+    margin-left: 200px;
+}
+
+.container {
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+.content {
+    width: 400px;
+    vertical-align: top;
+    margin-bottom: 20px;
+    display: inline-block;    
+}
+
+.ingredient {
+    width: 300px;
+}

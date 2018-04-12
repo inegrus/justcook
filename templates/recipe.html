@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Recipe </title>      
+        <style type=text/css>{{ get_resource_as_string('static/css/style.css') }}</style> 
+    </head>
+    <body>
+        <div id="search-form">
+            
+            <form method="post" action="/search_recipe">
+                <h2>Search again?</h2>
+                <input type="text" id="input_text" name="input_text" required="required"><br>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+        <div class="container">     
+            <!-- Changes needed for the length of array (max elem 10)  -->
+                {% for i in range(0, 9) %} 
+                <div class="content">
+                    <div class="label">{{response['hits'][i]['recipe']['label'] }} </div>
+                    <img class="image" src= {{response['hits'][i]['recipe']['image'] }}>
+                    <div class="ingredient">{{response['hits'][i]['recipe']['ingredientLines'] }}</div>
+                </div>
+                {% endfor %}
+        </div>
+
+    </body>
+</html>
