@@ -3,6 +3,9 @@ import urllib
 import json
 import requests
 from pprint import pprint
+import os
+from secret_key import SECRET_APP_ID, SECRET_APP_KEY
+
 
 # app = Flask ("MyApp")
 # app.run (debug=True)
@@ -12,15 +15,12 @@ from pprint import pprint
 
 # endpoint = "https://www.edamam.com/recipes"
 
+
 ingredients = ["flour", "apple"]
-url_for_recipes = "https://api.edamam.com/search?app_id=ff6d4efa&app_key=f70aa029996a664dcb7516a504f11d74&q={}".format(" ".join(ingredients))
+part_of_url = "https://api.edamam.com/search?app_id={}&app_key={}&q=".format(SECRET_APP_ID, SECRET_APP_KEY)
+url_for_recipes = part_of_url + "{}".format(" ".join(ingredients))
 
 response = requests.get(url_for_recipes).json()
-
-#print response.url
-#print response.status_code
-#print response.text.hits.recipe.ingredientLines
-
 
 for i in range(0, 9):
     print("\n ======= Another recipe ======= \n ")
