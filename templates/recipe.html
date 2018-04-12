@@ -20,6 +20,7 @@
                     <div class="label">{{response['hits'][i]['recipe']['label'] }} </div>
                     <img class="image" src= {{response['hits'][i]['recipe']['image'] }}>
                     <div class="ingredient">{{response['hits'][i]['recipe']['ingredientLines'] }}</div>
+                    <div class="link"><a href={{response['hits'][i]['recipe']['url'] }}>More info</a></div>
                 </div>
                 {% endfor %}
         </div>

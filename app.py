@@ -42,7 +42,7 @@ def sign_up():
     #     pprint(response['hits'][i]['recipe']['ingredientLines'])
     #     pprint(response['hits'][i]['recipe']['image'])
 
-    #     pprint(response['hits'][i]['recipe'])
+    # pprint(response['hits'][0]['recipe'])
     
     print(len(response['hits']))
     return render_template("recipe.html", response = response )
