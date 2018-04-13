@@ -1,16 +1,16 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Just Cook</title>
-        <style type=text/css>{{ get_resource_as_string('static/css/style.css') }}</style> 
-    </head>
-    <body>
-    <div id="search-form">
+<head>
+    <title>Just Cook</title>
+    <style type=text/css>{{ get_resource_as_string('static/css/style.css') }}</style> 
+</head>
+<body>
+    <div id="home-search-form">
         <form method="post" action="/search_recipe">
             <label for="text">Add some ingredients</label><br>
             <input type="text" id="input_text" name="input_text" required="required"><br>
             <input type="submit" value="Submit" id="submit">
         </form>
     </div>
-    </body>
+</body>
 </html>

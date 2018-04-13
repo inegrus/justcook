@@ -1,14 +1,62 @@
 body {
-    background-color: blanchedalmond;
+    margin: 0px;
 }
 
-#search-form{
-    margin-left: 200px;
+/***** Home page *****/
+#home-search-form {
+    margin-left: 300px;
+    margin-top: 150px;
 }
 
+
+
+/***** Recipe page *****/
+
+/* Nav bar */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-family: Chalkduster;
+}
+
+.navbar h2 {
+    display: inline-block;
+    color: #f2f2f2;
+    padding: 2px 0px 0px 7px;
+    font-size: 22px;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+#search-form {
+    display: inline-block;
+    margin-right: 60px;
+    float: right;
+    
+}
+
+input {
+    font-family: inherit;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+button {
+    display: inline-block;
+    font-family: inherit;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* Container */
 .container {
-    margin-left: 70px;
-    margin-top: 20px;
+    margin-top: 130px;
+    text-align: center;
 }
 
 .content {
@@ -18,6 +66,45 @@ body {
     display: inline-block;    
 }
 
-.ingredient {
-    width: 300px;
+/* Recipes */
+
+.label {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.ingredients {
+    width: 350px;
+    list-style-type: none;
+}
+ul {
+    list-style-type: none;
+}
+
+.image {
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .5);
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+button {
+    font-size: 15px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, .5);
+}
+
+/* For small devices */
+@media screen and (max-width: 600px) {
+    
+    #search-form {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .container {
+        margin-top: 180px;
+    }
 }

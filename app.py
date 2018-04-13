@@ -24,7 +24,7 @@ app.jinja_env.globals['get_resource_as_string'] = get_resource_as_string
 
 # Search page
 @app.route("/search_recipe", methods=["POST"])
-def sign_up():
+def search():
     form_data = request.form.get("input_text")
     print(form_data)
     
@@ -44,7 +44,10 @@ def sign_up():
 
     # pprint(response['hits'][0]['recipe'])
     
-    print(len(response['hits']))
+    # print(len(response['hits']))
+    # print(type(response['hits'][0]['recipe']['ingredientLines']))
+    # print(response['hits'][0]['recipe']['ingredientLines'][0])
+
     return render_template("recipe.html", response = response )
 
 app.run(debug=True)

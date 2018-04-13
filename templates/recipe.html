@@ -1,29 +1,39 @@
 <!doctype html>
 <html>
-    <head>
-        <title> Recipe </title>      
-        <style type=text/css>{{ get_resource_as_string('static/css/style.css') }}</style> 
-    </head>
-    <body>
+<head>
+    <title> Recipe </title>      
+    <style type=text/css>{{ get_resource_as_string('static/css/style.css') }}</style> 
+</head>
+<body>
+    <div class="navbar">
+        <h2><a href="/"><< Just Cook</a></h2>
+        <h2>|  Contact us</h2>
         <div id="search-form">
-            
             <form method="post" action="/search_recipe">
                 <h2>Search again?</h2>
-                <input type="text" id="input_text" name="input_text" required="required"><br>
-                <input type="submit" value="Submit" id="submit">
+                <input type="text" id="input_text" name="input_text" required="required">
+                <!-- <input type="submit" value="Submit" id="submit"> -->
+                <button type="buttton">Search</button>
             </form>
+        </div>  
+    </div>
+    
+    <div class="container">     
+        {% for i in range(0, 9): %} 
+        <div class="content">
+            <div class="label">{{response['hits'][i]['recipe']['label'] }} </div>
+            <img class="image" src= {{response['hits'][i]['recipe']['image'] }}>
+            <div class="ingredients">
+                <ul>   
+                    {% for j in response['hits'][i]['recipe']['ingredientLines']:  %}
+                    <li> {{ j }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <button class="info"><a href={{response['hits'][i]['recipe']['url'] }}>More info</a></button>
         </div>
-        <div class="container">     
-            <!-- Changes needed for the length of array (max elem 10)  -->
-                {% for i in range(0, 9) %} 
-                <div class="content">
-                    <div class="label">{{response['hits'][i]['recipe']['label'] }} </div>
-                    <img class="image" src= {{response['hits'][i]['recipe']['image'] }}>
-                    <div class="ingredient">{{response['hits'][i]['recipe']['ingredientLines'] }}</div>
-                    <div class="link"><a href={{response['hits'][i]['recipe']['url'] }}>More info</a></div>
-                </div>
-                {% endfor %}
-        </div>
-
-    </body>
+        {% endfor %}
+    </div>
+    
+</body>
 </html>
