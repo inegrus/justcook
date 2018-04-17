@@ -56,4 +56,5 @@ def search():
 
     return render_template("recipe.html", response = response )
 
-app.run(debug=True)
+port = int(os.environ.get('PORT', 5000))
+app.run(debug=True, port=port)
