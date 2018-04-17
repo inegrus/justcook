@@ -2,8 +2,9 @@ from flask import Flask, render_template, request
 import urllib, json, os
 import requests
 from pprint import pprint
-from secret_key import SECRET_APP_ID, SECRET_APP_KEY
 
+SECRET_APP_ID = os.environ.get('SECRET_APP_ID')
+SECRET_APP_KEY = os.environ.get('SECRET_APP_KEY')
 
 app = Flask("MyApp")
 
