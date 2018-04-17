@@ -14,12 +14,20 @@ app = Flask("MyApp")
 def show():
     return render_template("index.html")
 
+# Contact page
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 # Load css
 def get_resource_as_string(name, charset='utf-8'):
     with app.open_resource(name) as f:
         return f.read().decode(charset)
 
 app.jinja_env.globals['get_resource_as_string'] = get_resource_as_string
+
+
+# To Do: problem with 0 results
 
 
 # Search page
