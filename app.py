@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-import urllib, requests, json, os
+import urllib, json, os
+
 from pprint import pprint
 from secret_key import SECRET_APP_ID, SECRET_APP_KEY
 
@@ -37,7 +38,7 @@ def search():
     #ingredients = ["lemon", "orange", "flour"]
     url_for_recipes = "https://api.edamam.com/search?app_id={}&app_key={}&q={}".format(SECRET_APP_ID, SECRET_APP_KEY, ingredients)
     
-    response = requests.get(url_for_recipes).json()
+    # response = requests.get(url_for_recipes).json()
     
 
     # for i in range(0, len(response['hits'])):
