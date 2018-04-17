@@ -2,9 +2,19 @@ from flask import Flask, render_template, request
 import urllib, json, os
 import requests
 from pprint import pprint
+from os.path import join, dirname
+from dotenv import load_dotenv
 
-SECRET_APP_ID = os.environ.get('SECRET_APP_ID')
-SECRET_APP_KEY = os.environ.get('SECRET_APP_KEY')
+# Load env var
+# Create .env file path.
+dotenv_path = join(dirname(__file__), '.env')
+ 
+# Load file from the path.
+load_dotenv(dotenv_path)
+
+#Accessing variables
+SECRET_APP_ID = os.getenv('SECRET_APP_ID')
+SECRET_APP_KEY = os.getenv('SECRET_APP_KEY')
 
 app = Flask("MyApp")
 
@@ -25,10 +35,6 @@ def get_resource_as_string(name, charset='utf-8'):
 
 app.jinja_env.globals['get_resource_as_string'] = get_resource_as_string
 
-
-# To Do: problem with 0 results
-
-
 # Search page
 @app.route("/search_recipe", methods=["POST"])
 def search():
@@ -36,11 +42,21 @@ def search():
     print(form_data)
     
     ingredients = str(form_data)
+    
     #ingredients = ["lemon", "orange", "flour"]
     url_for_recipes = "https://api.edamam.com/search?app_id={}&app_key={}&q={}".format(SECRET_APP_ID, SECRET_APP_KEY, ingredients)
-    
+
     response = requests.get(url_for_recipes).json()
-    
+    # print("heei\n\n\n")
+    # print(len(response['hits']))
+
+    return render_template("recipe.html", 
+        response = response, 
+        objects_no = min(9, len(response['hits'])) )
+    # if response.status_code != 200:
+    #     print(response.text)
+    # else:
+    #     response = response.json()
 
     # for i in range(0, len(response['hits'])):
     #     print("\n ======= Another recipe ======= \n ")
@@ -53,8 +69,8 @@ def search():
     # print(len(response['hits']))
     # print(type(response['hits'][0]['recipe']['ingredientLines']))
     # print(response['hits'][0]['recipe']['ingredientLines'][0])
+    
 
-    return render_template("recipe.html", response = response )
 
 @app.route("/suggestions")
 def suggest():
@@ -62,4 +78,5 @@ def suggest():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', debug=True, port=port)
+    app.run(debug=True, port=port)
+    #host='0.0.0.0'

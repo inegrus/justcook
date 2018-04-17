@@ -7,7 +7,7 @@
 <body>
     <div class="navbar">
         <h2><a href="/"><< Just Cook</a></h2>
-        <h2><a href="/suggestions">  Contact us</a></h2>
+        <h2><a href="/suggestions"> | Contact us</a></h2>
         <div id="search-form">
             <form method="post" action="/search_recipe">
                 <h2>Search again?</h2>
@@ -18,21 +18,25 @@
         </div>  
     </div>
     
-    <div class="container">     
-        {% for i in range(0, 9): %} 
-        <div class="content">
-            <div class="label">{{response['hits'][i]['recipe']['label'] }} </div>
-            <img class="image" src= {{response['hits'][i]['recipe']['image'] }}>
-            <div class="ingredients">
-                <ul>   
-                    {% for j in response['hits'][i]['recipe']['ingredientLines']:  %}
-                    <li> {{ j }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <button class="info"><a href={{response['hits'][i]['recipe']['url'] }}>More info</a></button>
-        </div>
-        {% endfor %}
+    <div class="container">
+        {% if objects_no == 0 %}
+            {% print('Sorry, no elements') %}     
+        {% else: %}
+            {% for i in range(0, objects_no): %} 
+                <div class="content">
+                    <div class="label">{{response['hits'][i]['recipe']['label'] }} </div>
+                    <img class="image" src= {{response['hits'][i]['recipe']['image'] }}>
+                    <div class="ingredients">
+                        <ul>   
+                            {% for j in response['hits'][i]['recipe']['ingredientLines']:  %}
+                            <li> {{ j }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <button class="info"><a href={{response['hits'][i]['recipe']['url'] }}>More info</a></button>
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
     
 </body>
