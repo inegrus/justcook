@@ -1,0 +1,155 @@
+<html>
+<head>
+	<title>Suggestions </title>
+	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" > -->
+	<link rel="stylesheet" type="text/css" 
+		href="{{ url_for("static", filename="css/bootstrap.css") }}">
+	<link rel="stylesheet" type="text/css" 
+		href="{{ url_for("static", filename="css/styleone.css") }}">
+ 
+ </head>
+
+<body>
+	<div class="navbar">
+		<!-- I have tried to keep the navbar from the recipe page so it looks the same -->
+
+        <h2><a href="/"><< Just Cook</a></h2>
+        <h2> <a href="/suggestions">  Contact us</a> </h2>
+        <div id="search-form">
+            <form method="post" action="/search_recipe">
+                <h2>Search again?</h2>
+                <input type="text" id="input_text" name="input_text" required="required">
+                <button type="buttton">Search</button>
+            </form>
+        </div>  
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+	<div class= "containerone">
+
+		<div class = "row">
+
+			<div class = "col-md-12 hidden-xs">
+			<!-- hidden-xs this hides it on the small screen e.g. mobiles --> 
+			<div class="jumbotron text-center">
+			<!-- the text-center allows you to center everything on jumbotron/bootstrap -->
+
+				<h1>Suggestions</h1>
+				<br>
+				<h3 style = "background-color: #D2FDA7;"> We are always looking to improve our website so please send in your suggestions! </h3>
+				<br>
+				<br>
+
+				<p><a href="mailto:my@mail.com?subject=Contact JustCook" class="btn btn-success btn-lg active" role ="button">Email us!</a></p>
+				<!--href tells you where you want the button to link to -->
+				<!-- the mailto: part will open up your email and send an email to my@mail.com with the subject Email us!-->
+				<br>
+				<br>
+				
+			</div>
+			<!-- Now close the div for both column and row -->
+		</div>
+
+	</div>
+
+<!-- Starting a new row below the 'suggestions' title-->
+	<div class = "row">
+
+	<div class = "container">
+		<div class = "col-md-12 hidden-xs">
+		<form action="/">
+<!-- We want the submissions to go somewhere...
+ -->		
+ 		<div class = "row">
+			<div class = "col-25">
+				<label for = "fullname"> Full Name </label>
+			</div>
+			<div class = "col-75">
+				<input type = "text" id = "fullname" name = "fullname" placeholder = "Your name..">
+			</div>
+		</div>
+
+		<div class = "row">
+			<div class = "col-25">
+				<label for = "email"> Email </label>
+			</div>
+			<div class = "col-75">
+				<input type = "text" id = "email" name = "email" placeholder = "Your email..">
+			</div>
+		</div>
+
+		<div class = "row">
+			<div class = "col-25">
+				<label for = "continent"> Continent </label>
+			</div>
+			<div class = "col-75">
+				<select id = "Continent" name = "Continent">
+					<option value = "Europe"> Europe </option>
+					<option value = "Asia"> Asia </option>
+					<option value = "Africa"> Africa </option>
+					<option value = "Australia"> Australia </option>
+					<option value = "North America"> North America </option>
+					<option value = "South America"> South America </option>
+				</select>
+			</div>
+		</div>
+
+		<div class = "row">
+			<div class = "col-25">
+				<label for = "suggestions"> Suggestions </label>
+			</div>
+			<div class = "col-75">
+				<textarea id = "suggestions" name = "suggestions" placeholder = "Write your suggestions here.." style = "height: 200px"></textarea>
+			</div>
+		</div>
+
+	<br>
+
+		<div class = "row">
+			<input type = "submit" value = "Submit">
+		</div>
+		</form>
+	</div>
+</div>
+
+<br>
+<br>
+<br>
+
+		<!-- Second row -->
+		<!-- <div class="row">
+			<form method = "GET" action = "index.html">
+				<p> Name: <input> </p>
+				<p> Email: <input> </p>
+				<p> Your Suggestion: <input> </p>
+				textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;}
+
+				<button type = "submit"> Submit </button>
+
+			</form> <br>
+
+			
+      	</div>
+     </div> -->
+    
+</body>
+
+</html>
+
