@@ -50,4 +50,8 @@ def search():
 
     return render_template("recipe.html", response = response )
 
+@app.route("/suggestions")
+def suggest():
+    return render_template("suggestions.html")
+
 app.run(debug=True)
