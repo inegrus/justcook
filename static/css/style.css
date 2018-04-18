@@ -3,11 +3,82 @@ body {
 }
 
 /***** Home page *****/
-#home-search-form {
-    margin-left: 300px;
-    margin-top: 150px;
+
+.home-content {
+    /* background-color: grey; */
+    /* background-image: url("static/img/home-background.jpg"); */
+    height: 500px;
+    margin-top: 60px;
+    font-family: Chalkduster;
+    margin-left: 280px;
+    font-size: 25px;
 }
 
+#home-search-form {
+    width: 100%;
+    position: relative;
+}
+
+.home-text {
+    transform: rotate(-8deg);
+    color: white;
+}
+
+.home-text h1 {
+    font-size: 60px;
+    margin-bottom: 70px;
+}
+
+.home-text h2 {
+    margin-top: 100px;
+    font-size: 40px;
+}
+
+.home_input{
+    width: 100%;
+    float: left;
+    border: 3px solid grey;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+}
+
+.navbar_input {
+    font-family: inherit;
+    border-radius: 6px;
+    font-size: 13px;
+    width: 160px;
+    height: 20px;
+}
+
+
+#input_text:focus {
+    color: grey;
+  }
+
+.searchButton {
+    position: absolute;  
+    right: -50px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid grey;
+    background: grey;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+button:focus {outline:0;}
+
+.wrap{
+    width: 25%;
+    transform: rotate(-8deg) !important;
+    margin-left: 35px;
+    margin-top: 80px;
+  }
 
 
 /***** Recipe page *****/
@@ -39,19 +110,23 @@ body {
     float: right;
 }
 
-input {
+/* input {
     font-family: inherit;
     border-radius: 6px;
     font-size: 13px;
     width: 160px;
     height: 30px;
-}
+} */
 
 button {
     display: inline-block;
     font-family: inherit;
-    border-radius: 6px;
-    font-size: 13px;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+}
+
+.nav_button {
+    border-radius: 6px !important;
 }
 
 /* Container */

@@ -16,7 +16,7 @@
 		<div id="search-form">
 			<form method="post" action="/search_recipe">
 				<h2>Search again?</h2>
-				<input type="text" id="input_text" name="input_text" required="required">
+				<input type="text" id="input_text" name="input_text" required="required" autocomplete="off">
 				<button type="buttton">Search</button>
 			</form>
 		</div>  
@@ -29,9 +29,9 @@
 					<!-- the text-center allows you to center everything on jumbotron/bootstrap -->
 					<h1>Suggestions</h1>
 					<br>
-					<h3 style = "background-color: #D2FDA7;"> We are always looking to improve our website so please send in your suggestions! </h3>
+					<h3> We are always looking to improve our website so please send in your suggestions! </h3>
 					<br>
-					<p><a href="mailto:my@mail.com?subject=Contact JustCook" class="btn btn-success btn-lg active" role ="button">Email us!</a></p>
+					<!-- <p><a href="mailto:my@mail.com?subject=Contact JustCook" class="btn btn-success btn-lg active" role ="button">Email us!</a></p> -->
 					<!--href tells you where you want the button to link to -->
 					<!-- the mailto: part will open up your email and send an email to my@mail.com with the subject Email us!-->
 					<br>
@@ -43,23 +43,17 @@
 		<!-- Starting a new row below the 'suggestions' title-->
 		<div class = "row">
 			<div class = "container">
-				<div class = "col-md-12 hidden-xs">
+				<div class = "col-md-12 hidden-xs suggestions">
 					<form action="/">
 						<!-- We want the submissions to go somewhere...
 						-->		
 						<div class = "row">
-							<div class = "col-25">
-								<label for = "fullname"> Full Name </label>
-							</div>
 							<div class = "col-75">
 								<input type = "text" id = "fullname" name = "fullname" placeholder = "Your name..">
 							</div>
 						</div>
 						
 						<div class = "row">
-							<div class = "col-25">
-								<label for = "email"> Email </label>
-							</div>
 							<div class = "col-75">
 								<input type = "text" id = "email" name = "email" placeholder = "Your email..">
 							</div>
@@ -82,17 +76,11 @@
 						</div> -->
 						
 						<div class = "row">
-							<div class = "col-25">
-								<label for = "suggestions"> Suggestions </label>
-							</div>
 							<div class = "col-75">
 								<textarea id = "suggestions" name = "suggestions" placeholder = "Write your suggestions here.." style = "height: 200px"></textarea>
 							</div>
 						</div>
-						
-						<br>
-						
-						<div class = "row">
+						<div class = "row button">
 							<input type = "submit" value = "Submit">
 						</div>
 					</form>

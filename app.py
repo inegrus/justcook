@@ -52,7 +52,8 @@ def search():
 
     return render_template("recipe.html", 
         response = response, 
-        objects_no = min(9, len(response['hits'])) )
+        objects_no = min(9, len(response['hits'])))
+    
     # if response.status_code != 200:
     #     print(response.text)
     # else:

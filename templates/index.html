@@ -1,16 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Just Cook</title>
     <style type=text/css>{{ get_resource_as_string('static/css/style.css') }}</style> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div id="home-search-form">
-        <form method="post" action="/search_recipe">
-            <label for="text">Add some ingredients</label><br>
-            <input type="text" id="input_text" name="input_text" required="required"><br>
-            <input type="submit" value="Submit" id="submit">
-        </form>
+<body style="background: url( '{{ url_for("static", filename="img/home_background.jpg") }}">
+    <div class="home-content">
+        <div class="home-text">
+            <h1>Just Cook</h1>
+            <h2>Are you hungry?</h2>
+            <h3>Search for your food:</h3>
+        </div>
+        <div class="wrap">
+            <div id="home-search-form">
+                <form method="post" action="/search_recipe">
+                    <input type="text" id="input_text" class="home_input" name="input_text" required="required" autocomplete="off" >
+                    <!-- <input type="submit" id="submit" class="searchButton"> <i class="fa fa-search"></i> -->
+                    <button type="submit" id="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
