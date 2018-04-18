@@ -15,6 +15,7 @@ load_dotenv(dotenv_path)
 #Accessing variables
 SECRET_APP_ID = os.getenv('SECRET_APP_ID')
 SECRET_APP_KEY = os.getenv('SECRET_APP_KEY')
+MAIL_API_KEY = os.getenv('EMAIL_API_KEY')
 
 app = Flask("MyApp")
 
@@ -71,6 +72,41 @@ def search():
     # print(type(response['hits'][0]['recipe']['ingredientLines']))
     # print(response['hits'][0]['recipe']['ingredientLines'][0])
     
+# SEND EMAIL  
+
+def send_simple_message(name, email, text):
+    return requests.post(
+        "https://api.mailgun.net/v3/sandboxd3b5e3e819be48aeb95a744ed35549d8.mailgun.org/messages",
+        auth=("api", MAIL_API_KEY),
+        data={"from": "Ioana <ravarioana@gmail.com>",
+              "to": [email],
+              "subject": "Suggestions for JustCook",
+              "text": [text],
+             "html": """
+                    <html>
+                        <body>
+                        <img src="http://icons.iconarchive.com/icons/designbolts/despicable-me-2/128/Minion-Hello-icon.png">
+                            <h1 style="color: pink">Hi! You received a suggestion for your JustCook Website</h1><br>
+                            <h2 style="color: #c299ff">
+                        """ + str(text) +
+                        """
+                        </h2>
+                        </body>
+                    </html>
+                    """
+             
+             })
+
+@app.route("/info", methods=["POST"])
+def get_info():
+    form_data = request.form
+    name = form_data["fullname"]
+    email = form_data["email"]
+    text = form_data["suggestions"]
+    print(form_data)
+
+    send_simple_message("Hello {}".format(name), email, text)
+    return render_template("suggestions.html")
 
 
 @app.route("/suggestions")
