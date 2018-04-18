@@ -43,6 +43,8 @@ body {
     border-radius: 5px;
     outline: none;
     color: black;
+    font-size: 15px;
+    font-family: Chalkduster;  
 }
 
 .navbar_input {

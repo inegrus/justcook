@@ -56,6 +56,7 @@ background-image: url(http://www.greendot.sg/wp-content/themes/Greendot/images/b
 background-position: center center;
 background-size: 3000px;
 height: 250px;
+/* font-family: Chalkduster; */
 }
 
 .jumbotron h1 {
@@ -102,6 +103,7 @@ body{
 
 .container .suggestions {
     margin-left: 130px !important;
+    font-size: 20px;
 
 }
 input[type=text], select, textarea {
@@ -110,7 +112,7 @@ input[type=text], select, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
-
+    outline: none;
 }
 
 label {
@@ -131,6 +133,7 @@ input[type=submit] {
     cursor: pointer;
     float: right;
     margin-top: 10px;
+    outline: none;
 }
 
 /*This changes the colour of the submit button when you hover over it*/
@@ -155,6 +158,11 @@ input[type=submit]:hover {
     content: "";
     display: table;
     clear: both;
+}
+
+.row {
+    font-family:  'Abril Fatface', cursive;
+
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
